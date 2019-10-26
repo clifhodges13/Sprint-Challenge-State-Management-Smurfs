@@ -8,7 +8,7 @@ function SmurfsList(props) {
 
   useEffect(() => {
     props.getSmurfs()
-  }, [props.isPosting])
+  }, [props.isPosting, props.delete])
 
   return (
     <div>
@@ -22,7 +22,8 @@ function SmurfsList(props) {
 function mapStateToProps(state) {
   return {
     smurfs: state.smurfs,
-    isPosting: state.isPosting
+    isPosting: state.isPosting,
+    delete: state.delete
   }
 };
 

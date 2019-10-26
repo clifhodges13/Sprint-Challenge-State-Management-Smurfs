@@ -42,7 +42,12 @@ export function addSmurf(smurf) {
 }
 
 export function deleteSmurf(smurf) {
+  console.log(smurf)
   return dispatch => {
-    dispatch({ type: DELETE_SMURF, payload: smurf })
+    axios
+      .delete(`http://localhost:3333/smurfs/${smurf.id}`)
+      .then(res => {
+        dispatch({ type: DELETE_SMURF, payload: res })
+      })
   }
 }

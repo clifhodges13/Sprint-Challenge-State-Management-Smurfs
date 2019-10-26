@@ -4,12 +4,14 @@ import { addSmurf } from '../actions'
 
 function SmurfForm(props) {
 
-  const [input, setInput] = useState({
+  const initial = {
     name: '',
     age: '',
     height: '',
     id: Date.now()
-  })
+  }
+
+  const [input, setInput] = useState(initial)
 
   const handleChange = e => {
     setInput({
@@ -21,6 +23,7 @@ function SmurfForm(props) {
   const handleSubmit = e => {
     e.preventDefault()
     props.addSmurf(input)
+    setInput(initial)
   }
 
   return (

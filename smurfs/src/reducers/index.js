@@ -5,14 +5,16 @@ const initialState = {
   smurfs: [
     {
       name: 'Dopey',
-      age: 200,
-      height: '3cm'
+      age: 100,
+      height: '3cm',
+      id: '12'
     }
   ],
   smurfingSuccess: false,
   isLoading: false,
   isPosting: false,
-  error: null
+  error: null,
+  delete: false
 }
 
 export function reducer(state = initialState, action) {
@@ -55,7 +57,8 @@ export function reducer(state = initialState, action) {
       }
     case DELETE_SMURF:
       return {
-        ...state.filter(smurf => smurf.id !== action.payload.id)
+        ...state,
+        delete: !state.delete
       }
     default:
       return state
